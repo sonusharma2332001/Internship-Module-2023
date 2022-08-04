@@ -5,7 +5,7 @@
 * Branch:ME
 * Section:C
 
-## Internship-Module-2023
+## Coding Profiles
 
 * LeetCode: https://leetcode.com/sonusharma_123
 * HackerRank: https://www.hackerrank.com/sonu_1923me1073?hr_r=1
