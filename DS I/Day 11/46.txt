@@ -1,0 +1,16 @@
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        
+        ans = []
+        def backtrack(remaining, cur):
+            if not remaining:
+                ans.append(cur[:])
+            for num in list(remaining):
+                remaining.discard(num)
+                cur.append(num)
+                backtrack(remaining, cur)
+                remaining.add(num)
+                cur.pop()
+                
+        backtrack(set(nums), [])
+        return ans

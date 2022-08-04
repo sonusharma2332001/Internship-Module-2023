@@ -1,0 +1,36 @@
+class Solution:
+    def letterCombinations(self, digits: str) -> List[str]:
+        d = {"2": "abc", "3": "def", "4": "ghi", "5": "jkl", "6": "mno", "7": "pqrs", "8": "tuv", "9":"wxyz"}
+        
+        res = []
+        if len(digits) == 0:
+            return res
+        elif len(digits) == 1:
+            num = digits[0]
+            for j in range(len(d[num])):
+                res.append(d[num][j])
+        elif len(digits) == 2:
+            num1 = digits[0]
+            num2 = digits[1]
+            for i in range(len(d[num1])):
+                for j in range(len(d[num2])):
+                    res.append(d[num1][i] + d[num2][j])
+        elif len(digits) == 3:
+            num1 = digits[0]
+            num2 = digits[1]
+            num3 = digits[2]
+            for i in range(len(d[num1])):
+                for j in range(len(d[num2])):
+                    for k in range(len(d[num3])):
+                        res.append(d[num1][i] + d[num2][j] + d[num3][k])
+        else:
+            num1 = digits[0]
+            num2 = digits[1]
+            num3 = digits[2]
+            num4 = digits[3]
+            for i in range(len(d[num1])):
+                for j in range(len(d[num2])):
+                    for k in range(len(d[num3])):
+                        for z in range(len(d[num4])):
+                            res.append(d[num1][i] + d[num2][j] + d[num3][k] + d[num4][z])
+        return res

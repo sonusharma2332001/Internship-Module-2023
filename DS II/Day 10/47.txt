@@ -1,0 +1,17 @@
+class Solution:
+    def permuteUnique(self, nums: List[int]) -> List[List[int]]:
+        ans = []
+        visited = set()
+        def backtrack(numbers, combo):
+            if not numbers:
+                ans.append(combo[:])
+            for i in range(len(numbers)):
+                string = ",".join([str(c) for c in combo+[numbers[i]]])
+                if string not in visited:
+                    combo.append(numbers[i])
+                    visited.add(string)
+                    backtrack(numbers[:i]+numbers[i+1:], combo)
+                    combo.pop()
+                
+        backtrack(nums, [])
+        return ans

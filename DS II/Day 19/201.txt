@@ -1,0 +1,12 @@
+class Solution:
+    def rangeBitwiseAnd(self, left: int, right: int) -> int:
+        
+        res=0
+    
+        for i in range(32):
+            if(left & 1<<i and right & 1<<i):
+                gap=2**i
+                if(right-left+1<=gap):
+                    res+=2**i
+        
+        return res

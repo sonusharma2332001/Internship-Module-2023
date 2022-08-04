@@ -1,0 +1,16 @@
+class Solution:
+    def generateParenthesis(self, n: int) -> List[str]:
+        self.res = []
+        self.helper(n, n, "")
+        return self.res
+    
+    def helper(self, left, right, curr):
+        if left < 0 or right < 0 or left > right:
+            return
+        
+        if left == 0 and right == 0:
+            self.res.append(curr)
+            return
+        
+        self.helper(left - 1, right, curr + "(")
+        self.helper(left, right - 1, curr + ")")

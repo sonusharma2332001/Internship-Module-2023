@@ -1,0 +1,21 @@
+class Solution(object):
+    def backspaceCompare(self, s, t):
+        str1 = ""
+        str2 = ""
+        for c in s:
+            if(c == '#' and str1 == ""):
+                continue
+            if c == '#' and str1 != "":
+                str1 = str1[0:-1]
+            else:
+                str1 += c
+        for c in t:
+            if(c == '#' and str2 == ""):
+                continue
+            if c == '#' and str2 != "":
+                str2 = str2[0:-1]
+            else:
+                str2 += c
+        print(str1)
+        print(str2)
+        return str1 == str2

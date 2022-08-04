@@ -1,0 +1,30 @@
+class Solution:
+    def solve(self, board: List[List[str]]) -> None:
+        """
+        Do not return anything, modify board in-place instead.
+        """
+        m, n = len(board), len(board[0])
+        visited = set()
+        def dfs(v):
+            if v in visited: return
+            visited.add(v)
+            i, j = v
+            if i == 0 or i == m-1 or j == 0 or j == n-1:
+                self.boundary += 1    
+            for di, dj in [[-1,0],[1,0],[0,-1],[0,1]]:
+                if 0<=i+di<m and 0<=j+dj<n and board[i+di][j+dj] == "O":
+                    dfs((i+di,j+dj))
+        def dfsFlip(v):
+            i,j = v
+            board[i][j] = "X"
+            for di, dj in [[-1,0],[1,0],[0,-1],[0,1]]:
+                if 0<=i+di<m and 0<=j+dj<n and board[i+di][j+dj] == "O":
+                    dfsFlip((i+di,j+dj))
+        res = 0
+        for i in range(m):
+            for j in range(n):
+                if (i,j) not in visited and board[i][j] == "O":
+                    self.boundary = 0
+                    dfs((i,j))
+                    if not self.boundary:
+                        dfsFlip((i,j))

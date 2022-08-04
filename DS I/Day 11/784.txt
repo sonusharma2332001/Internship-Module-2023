@@ -1,0 +1,15 @@
+class Solution(object):
+    def letterCasePermutation(self, s):
+        res = []
+        def gen(prefix, suffix=""):
+            if len(prefix) == 0:
+                res.append(suffix)
+                return
+            else:
+                if prefix[-1].isalpha():
+                    gen(prefix[:-1], suffix=prefix[-1].lower() + suffix)
+                    gen(prefix[:-1], suffix=prefix[-1].upper() + suffix)
+                else:
+                    gen(prefix[:-1], suffix=prefix[-1] + suffix)
+        gen(s, suffix="")
+        return res    

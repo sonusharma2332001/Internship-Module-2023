@@ -1,0 +1,32 @@
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        if len(s) == 1:
+            return s
+        best = [0, 0] 
+        for i in range(len(s) - 1): 
+            hop = 1  
+            while True:
+                if i >= hop and i + hop <= len(s) - 1:
+                    if s[i - hop] == s[i + hop]: 
+                        if (best[1] - best[0] + 1) < 2 * hop + 1:  
+                            best = [i - hop, i + hop]
+                        hop += 1
+                    else:
+                        break
+                else:
+                    break
+        
+            hop = 0.5
+            while True:
+                j = i + 0.5
+                if j >= hop and j + hop <= len(s) - 1:
+                    if s[int(j - hop)] == s[int(j + hop)]:
+                        if (best[1] - best[0] + 1) < 2 * hop + 1:
+                            best = [int(j - hop), int(j + hop)]
+                        hop += 1
+                    else:
+                        break
+                else:
+                    break
+        
+        return s[best[0]:best[1]+1]

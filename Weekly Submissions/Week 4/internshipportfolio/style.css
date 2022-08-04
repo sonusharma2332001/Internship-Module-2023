@@ -1,0 +1,74 @@
+body{
+    background: whitesmoke;
+}
+.container {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+img {
+    width: 107px;
+    height: 106px;
+    /* border: 2px solid black; */
+    border-radius: 64px;
+}
+img:hover {
+    width: 120px;
+    height: 120px;
+    border: 2px solid black;
+
+}
+#navbar {
+    text-align: center;
+    margin-top: 23px;
+}
+nav ul li {
+    list-style: none;
+    display: inline-flex;
+    margin: 0px 35px 0px 35px;
+    border: 2px solid black;
+}
+.item {
+    margin-top: 34px;
+}
+.items:hover{
+    background-color: green;
+    font-size: larger;
+    cursor: pointer;
+}
+
+
+
+
+#about {
+    text-align: center;
+    padding: 27px 116px 60px 116px;
+}
+
+
+
+
+.card {
+    border: 2px solid black;
+    width: 33%;
+    height: 200px;
+    margin: 2px;
+    display: block;
+    text-align: center;
+}
+.next {
+    display: inline-flex;
+    border: 2px solid red;
+}
+
+
+
+
+
+footer{
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: larger;
+}

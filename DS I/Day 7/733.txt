@@ -1,0 +1,18 @@
+class Solution:
+    def floodFill(self, image: List[List[int]], sr: int, sc: int, color: int) -> List[List[int]]:
+        
+        
+        def visit(r, c):
+            
+            if r < 0 or r >= m or c < 0 or c >= n or image[r][c] != a:
+                return
+            
+            image[r][c] = color
+            for x, y in [[1,0], [-1,0], [0, 1], [0,-1]]:
+                visit(r+x, c+y)
+        
+        
+        m, n, a = len(image), len(image[0]), image[sr][sc]
+        if a != color:
+            visit(sr, sc)
+        return image
